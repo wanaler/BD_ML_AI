@@ -1,5 +1,6 @@
 # The Proper Orthogonal Decomposition(POD)
 This is an explaination for note.py, the idea is got from https://youtu.be/TcqBbtWTcIc?si=fw05Dq5k5amXK66s.
+Our teacher has taught the lecture at https://youtu.be/SGOf8ST0nfo?si=8BP7n6Hbwdb_Tv7V.
 
 Suppose we have data that is a fuction of both space and time.
 $$y(x,t) = \sum_{m}^{j=1}u_{j}(x)a_{j}(t)$$
@@ -12,7 +13,7 @@ Obviously, we can not deal with it easily. If we wanna:
 Now, we collect both spatial location and times sets:
 
 $$ 
-x: x_{1}, x_{2}, x_{3},..., x_{n}.\\\
+x: x_{1}, x_{2}, x_{3},..., x_{n}.\\
 t: t_{1}, t_{2}, t_{3},..., t_{m}.
 $$
 
