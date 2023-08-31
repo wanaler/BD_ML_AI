@@ -6,7 +6,7 @@
 1.
 2.
 3.
-### Linear
+### Locally linear embedding
 1.
 2.
 ### POD
