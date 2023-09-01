@@ -6,8 +6,8 @@
 1.
 2.
 3.
-### Locally linear embedding
-1.
+### Locally linear embedding(局部线性插值)
+1. 
 2.
 ### POD
 1. dsaf
