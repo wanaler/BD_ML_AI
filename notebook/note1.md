@@ -91,7 +91,7 @@ for tt in range(Nt):
 U, S, VT = linalg.svd(Y, full_matrices= False)
 ```
 
-Then we finish the data initialization.
+Then we finish the data initialization, and show the data set as follows.
 
 ```Python
 # show y1 and y2
@@ -125,6 +125,8 @@ plt.xlabel('Index', fontsize=18)
 plt.show()
 ```
 ![6](n17.png)
+The diagnonal matrix
+
 ```Python
 # x, U
 plt.plot(x,U[:,0],label='U1')
@@ -136,6 +138,11 @@ plt.legend()
 plt.show()
 ```
 ![7](n18.png)
+
+Each column of this matrix($U$) is a mode or a vector which is for our set of simulation snapshots can be unpack into a picture of the same size of original snapshots. Each one is a spatial mode constructed with the underlying data. The first mode is just the average of this data set. The first few modes should give us a pretty good approximation of the underlying data set.
+
+![9](n110.png)
+
 ```Python
 # t,VT
 plt.plot(t,VT[0,:],label='VT1')
