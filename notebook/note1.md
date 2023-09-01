@@ -1,5 +1,5 @@
 # The Proper Orthogonal Decomposition(POD)
-This is an explaination for note.py, the idea is got from https://youtu.be/TcqBbtWTcIc?si=fw05Dq5k5amXK66s.
+This is an explaination for note.py, the idea is got from https://youtu.be/TcqBbtWTcIc?si=fw05Dq5k5amXK66s.and https://youtu.be/axfUYYNd-4Y?si=iX0Itx-csr0uVOyU.
 Our teacher has taught the lecture at https://youtu.be/SGOf8ST0nfo?si=8BP7n6Hbwdb_Tv7V.
 
 Suppose we have data that is a fuction of both space and time.
@@ -160,3 +160,22 @@ plt.legend()
 plt.show()
 ```
 ![8](n19.png)
+
+The finally matrix contain the time coefficients for each mode, if the underlying data is organized as snapshots in time.
+
+![12](n113.png)
+![13](n114.png)
+![14](n115.png)
+
+In conclusion, what we have done just 
+
+![15](n116.png)
+![16](n117.png)
+![17](n118.png)
+![18](n119.png)
+![19](n120.png)
+![20](n121.png)
+
+Besides, we can use it in a plenty kinds of situation like figures as follows. 
+
+![21](n122.png)
