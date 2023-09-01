@@ -15,12 +15,12 @@
 <center> LLE原理</center>
 
 * #### 具体实现
-    如上图，将高维空间的一个点 $X_i$ 映射到低维空间中（ $X_i$ 可以看成一个向量，其中的每一个元素可以看成 $X_i$ 的属性），可以选取 $X_i$ 周围的的点（临近点 $X_j$ ），计算出临近点与中心点$X_i$的相对为位置关系（即 $W_{ij}$ , 表示 $X_i$ 与 $X_j$ 之间的位置关系），在映射的时候，保证$X_i$的映射对应点 $Y_i$ 与周围的临近点 $Y_j$ 保持类似的位置关系（$W_{ij}$）就可以了。
+    如上图，将高维空间的一个点 $X_i$ 映射到低维空间中（ $X_i$ 可以看成一个向量，其中的每一个元素可以看成 $X_i$ 的属性），可以选取 $X_i$ 周围的的点（临近点 $X_j$ ），计算出临近点与中心点 $X_i$的相对为位置关系（即 $W_{ij}$ , 表示 $X_i$ 与 $X_j$ 之间的位置关系），在映射的时候，保证 $X_i$的映射对应点 $Y_i$ 与周围的临近点 $Y_j$ 保持类似的位置关系（ $W_{ij}$ ）就可以了。
 
-    1.构造函数，求解中心点与临近点之间的位置关系 ：
+    1.构造函数，求解中心点与临近点之间的位置关系:
     ![LLE](/notebook/LLE_2.png)
 
-    >ps.其中$\underset{min}{arg}(w_i)$表示使等号后式子最大时得到$w_i$的值，$X_i \in [1, D]$表示$X_i的大小为1 \times D$, $I_{k \times i}$为全1向量
+    >ps.其中 $\underset{min}{arg}(w_i)$表示使等号后式子最大时得到 $w_i$的值， $X_i \in [1, D]$表示 $X_i的大小为1 \times D$,  $I_{k \times i}$为全1向量
     
     2.通过代数方法使函数最小，求得相对位置关系 $w_{i}$
 
@@ -32,10 +32,11 @@
 为寻找 $z=f(x,y)$ 在附加条件下的极值点，先做拉格朗日函数
 $F(x,y,\lambda)=f(x,y)+\lambda \varphi (x,y)$ ，其中 $\lambda$ 为参数。
 令 $F(x,y,\lambda)$ 对 x 和 y 和 $\lambda$ 的一阶偏导数等于零，即
-$F'_x=f'_x(x,y)+\lambda\varphi'_x(x,y)=0$
-$F'_y=f'_y(x,y)+\lambda\varphi'_y(x,y)=0$
-$F'_\lambda=\varphi (x,y)=0$
-由上述方程组解出 x，y 及$\lambda$ ，如此求得的 $(x,y)$ ，就是函数 $z=f(x,y)$ 在附加条件 $\varphi (x,y)=0$ 下的可能极值点。
+$F'_x=f'_x(x,y)+\lambda\varphi'_x(x,y)=0$ 
+$F'_y=f'_y(x,y)+\lambda\varphi'_y(x,y)=0$ 
+$F'_\lambda=\varphi (x,y)=0$ 
+由上述方程组解出 x，y 及 $\lambda$ ，如此求得的 $(x,y)$ ，就是函数 $z=f(x,y)$ 在附加条件 
+ $\varphi (x,y)=0$ 下的可能极值点。
 若这样的点只有一个，由实际问题可直接确定此即所求的点。
 
     3.低维空间重映射
@@ -44,7 +45,7 @@ $F'_\lambda=\varphi (x,y)=0$
     >ps.对于为何可以用矩阵的迹代替原式子，我还没有答案，期望有同学帮忙解答。
 
     ![LLE](/notebook/LLE_7.png)
-这样，我们得到了$X_i$降维后的映射点$Y_i$,LLE也就完成了！~~补线性代数去了~~
+这样，我们得到了 $X_i$降维后的映射点 $Y_i$,LLE也就完成了！~~补线性代数去了~~
 
 ### The Proper Orthogonal Decomposition(POD)
 This is an explaination for note.py, the idea is got from https://youtu.be/TcqBbtWTcIc?si=fw05Dq5k5amXK66s.
