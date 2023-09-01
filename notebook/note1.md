@@ -124,7 +124,9 @@ plt.ylabel('Singular Value', fontsize=18)
 plt.xlabel('Index', fontsize=18)
 plt.show()
 ```
+
 ![6](n17.png)
+
 The diagonal matrix is the energy matrix $\Sigma$. Each diagonal element of this matrix is related to the amplitude of corresponding mode. From the figure below, we can find that only the first modes hold the most energy. The higher modes have less energy.
 
 ![10](n111.png)
