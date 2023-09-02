@@ -37,13 +37,11 @@ ps.拉格朗日乘数法：设给定二元函数 $z=f(x,y)$ 和附加条件 $\va
 $F(x,y,\lambda)=f(x,y)+\lambda \varphi (x,y)$ ，其中 $\lambda$ 为参数。
 令 $F(x,y,\lambda)$ 对 x 和 y 和 $\lambda$ 的一阶偏导数等于零，即
 
-$$
-F'_x=f'_x(x,y)+\lambda\varphi'_x(x,y)=0\\
+$$ F'_x=f'_x(x,y)+\lambda\varphi'_x(x,y)=0 $$
 
-F'_y=f'_y(x,y)+\lambda\varphi'_y(x,y)=0\\
+$$ F'_y=f'_y(x,y)+\lambda\varphi'_y(x,y)=0 $$
 
-F'_\lambda=\varphi (x,y)=0
-$$
+$$ F'_\lambda=\varphi (x,y)=0 $$
 
 由上述方程组解出 x，y 及 $\lambda$ ，如此求得的 $(x,y)$，就是函数 $z=f(x,y)$ 在附加条件$\varphi (x,y)=0$ 下的可能极值点。
 若这样的点只有一个，由实际问题可直接确定此即所求的点。
