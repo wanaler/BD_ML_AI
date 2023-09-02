@@ -71,10 +71,9 @@ Obviously, we can not deal with it easily. If we wanna:
 
 Now, we collect both spatial location and times sets:
 
-$$ 
-x: x_{1}, x_{2}, x_{3},..., x_{n}.\\
-t: t_{1}, t_{2}, t_{3},..., t_{m}.
-$$
+$$ x: x_{1}, x_{2}, x_{3},..., x_{n}. $$
+
+$$ t: t_{1}, t_{2}, t_{3},..., t_{m}. $$
 
 We can assemble the data $y(x,t)$ into an $m$ x $n$ matrix:
 
