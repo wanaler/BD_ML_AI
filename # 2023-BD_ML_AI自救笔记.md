@@ -11,7 +11,7 @@
     [[BiliBili] python与人工智能-数据降维-LLE](https://www.bilibili.com/video/BV14g411F7Je/?spm_id_from=333.337.search-card.all.click&vd_source=35bbad48bf3d84d0d268e71078d2cf2e)
 * #### 简要介绍
     **"Locally Linear Embedding"** 下面简称 **LLE** 是一种实现数据降维的方法。简单来说，对于一个高维空间的数据点，映射到低维空间中时，要想保持与其他点相对位置的一致性，**可以使用LLE方法**,如下图所示：
-    ![LLE](/notebook/LLE_1.png)
+    ![LLE1](/notebook/LLE_1.png)
 <center> LLE原理</center>
 
 * #### 具体实现
@@ -19,15 +19,15 @@
 
     1.构造函数，求解中心点与临近点之间的位置关系:
   
-  ![LLE](/notebook/LLE_2.png)
+     ![LLE2](/notebook/LLE_2.png)
 
     >ps.其中 $\underset{min}{arg}(w_i)$表示使等号后式子最大时得到 $w_i$的值， $X_i \in [1, D]$表示 $X_i的大小为1 \times D$,  $I_{k \times i}$为全1向量
     
     2.通过代数方法使函数最小，求得相对位置关系 $w_{i}$
 
-    ![LLE](/notebook/LLE_3.png)
+    ![LLE3](/notebook/LLE_3.png)
 
-    ![LLE](/notebook/LLE_4.png)
+    ![LLE4](/notebook/LLE_4.png)
 
     >ps.拉格朗日乘数法：设给定二元函数 $z=f(x,y)$ 和附加条件 $\varphi(x,y)=0$ 
 为寻找 $z=f(x,y)$ 在附加条件下的极值点，先做拉格朗日函数
@@ -43,11 +43,11 @@ $$
 若这样的点只有一个，由实际问题可直接确定此即所求的点。
 
     3.低维空间重映射
-    ![LLE](/notebook/LLE_5.png)
-    ![LLE](/notebook/LLE_6.png)
+    ![LLE5](/notebook/LLE_5.png)
+    ![LLE6](/notebook/LLE_6.png)
     >ps.对于为何可以用矩阵的迹代替原式子，我还没有答案，期望有同学帮忙解答。
 
-    ![LLE](/notebook/LLE_7.png)
+    ![LLE7](/notebook/LLE_7.png)
 这样，我们得到了 $X_i$降维后的映射点 $Y_i$,LLE也就完成了！~~补线性代数去了~~
 
 ### The Proper Orthogonal Decomposition(POD)
