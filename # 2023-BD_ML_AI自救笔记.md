@@ -9,9 +9,12 @@
 * #### 内容参考
 
     [[BiliBili] python与人工智能-数据降维-LLE](https://www.bilibili.com/video/BV14g411F7Je/?spm_id_from=333.337.search-card.all.click&vd_source=35bbad48bf3d84d0d268e71078d2cf2e)
+  
 * #### 简要介绍
     **"Locally Linear Embedding"** 下面简称 **LLE** 是一种实现数据降维的方法。简单来说，对于一个高维空间的数据点，映射到低维空间中时，要想保持与其他点相对位置的一致性，**可以使用LLE方法**,如下图所示：
+  
     ![LLE1](/notebook/LLE_1.png)
+  
 <center> LLE原理</center>
 
 * #### 具体实现
@@ -33,21 +36,23 @@
 为寻找 $z=f(x,y)$ 在附加条件下的极值点，先做拉格朗日函数
 $F(x,y,\lambda)=f(x,y)+\lambda \varphi (x,y)$ ，其中 $\lambda$ 为参数。
 令 $F(x,y,\lambda)$ 对 x 和 y 和 $\lambda$ 的一阶偏导数等于零，即
+
 $$
 F'_x=f'_x(x,y)+\lambda\varphi'_x(x,y)=0\\
 F'_y=f'_y(x,y)+\lambda\varphi'_y(x,y)=0\\
 F'_\lambda=\varphi (x,y)=0
 $$
-由上述方程组解出 x，y 及 $\lambda$ ，如此求得的 $(x,y)$ ，就是函数 $z=f(x,y)$ 在附加条件 
- $\varphi (x,y)=0$ 下的可能极值点。
+
+由上述方程组解出 x，y 及 $\lambda$ ，如此求得的 $(x,y)$，就是函数 $z=f(x,y)$ 在附加条件$\varphi (x,y)=0$ 下的可能极值点。
 若这样的点只有一个，由实际问题可直接确定此即所求的点。
 
-    3.低维空间重映射
+   3.低维空间重映射
     ![LLE5](/notebook/LLE_5.png)
     ![LLE6](/notebook/LLE_6.png)
     >ps.对于为何可以用矩阵的迹代替原式子，我还没有答案，期望有同学帮忙解答。
 
-    ![LLE7](/notebook/LLE_7.png)
+![LLE7](/notebook/LLE_7.png)
+
 这样，我们得到了 $X_i$降维后的映射点 $Y_i$,LLE也就完成了！~~补线性代数去了~~
 
 ### The Proper Orthogonal Decomposition(POD)
