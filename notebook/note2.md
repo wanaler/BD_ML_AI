@@ -66,7 +66,7 @@ $$
 \end{aligned}
 $$
 
-where  $\mathbf{U} \in \mathbb{R}^{n \times n}, \boldsymbol{\Sigma} \in \mathbb{R}^{n \times m-1}, \tilde{\mathbf{V}}^{*} \in \mathbb{R}^{m-1 \times m-1}, \tilde{\mathbf{U}} \in \mathbb{R}^{n \times r}, \tilde{\boldsymbol{\Sigma}} \in \mathbb{R}^{r \times r}, \tilde{\mathbf{V}}^{*} \in \mathbb{R}^{r \times m-1}$ , rem indicates the remaining $m-1-r$ singular values, and ${ }^{*}$ denotes the complex conjugate transpose.
+where  $\mathbf{U} \in \mathbb{R}^{n \times n}$, $\boldsymbol{\Sigma} \in \mathbb{R}^{n \times m-1}$, $\ tilde{\mathbf{V}}^{*} \in \mathbb{R}^{m-1 \times m-1}$, $\tilde{\mathbf{U}} \in \mathbb{R}^{n \times r}$, $\tilde{\boldsymbol{\Sigma}} \in \mathbb{R}^{r \times r}$, $\tilde{\mathbf{V}}^{*} \in \mathbb{R}^{r \times m-1}$ , rem indicates the remaining $m-1-r$ singular values, and ${ }^{*}$ denotes the complex conjugate transpose.
 
 Using the SVD of the snapshot matrix $\mathbf{X}$, the following approximation of the matrix $\mathbf{A}$ can be computed:
 
