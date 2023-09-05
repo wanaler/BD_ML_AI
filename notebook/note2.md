@@ -55,7 +55,7 @@ $$
 \begin{aligned}
 \mathbf{X} = \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{\ast} & =\left[\begin{array}{cc}
 \tilde{\mathbf{U}} & \tilde{\mathbf{U}}_{\mathrm{rem}}
-\end{array}\right]\left\[\begin{array}{cc}
+\end{array}\right]\left[\begin{array}{cc}
 \tilde{\boldsymbol{\Sigma}} & 0 \\
 0 & \boldsymbol{\Sigma}\_{\mathrm{rem}}
 \end{array}\right]\left[\begin{array}{c}
