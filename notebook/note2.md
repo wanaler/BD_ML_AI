@@ -54,10 +54,10 @@ A computationally efficient and accurate method for finding the pseudoinverse is
 $$
 \begin{aligned}
 \mathbf{X}=\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{\ast} & =\left\[\begin{array}{cc}
-\tilde{\mathbf{U}} & \tilde{\mathbf{U}}_{\mathrm{rem}}
+\tilde{\mathbf{U}} & \tilde{\mathbf{U}}\_{\mathrm{rem}}
 \end{array}\right]\left\[\begin{array}{cc}
 \tilde{\boldsymbol{\Sigma}} & 0 \\
-0 & \boldsymbol{\Sigma}_{\mathrm{rem}}
+0 & \boldsymbol{\Sigma}\_{\mathrm{rem}}
 \end{array}\right]\left\[\begin{array}{c}
 \tilde{\mathbf{V}}^{\ast} \\
 \tilde{\mathbf{V}}_{\mathrm{rem}}^{\ast}
