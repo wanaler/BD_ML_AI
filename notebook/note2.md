@@ -53,20 +53,31 @@ A computationally efficient and accurate method for finding the pseudoinverse is
 
 $$
 \begin{aligned}
+
 \mathbf{X}=\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{*} & =\left[\begin{array}{cc}
+
 \tilde{\mathbf{U}} & \tilde{\mathbf{U}}_{\mathrm{rem}}
+
 \end{array}\right]\left[\begin{array}{cc}
+
 \tilde{\boldsymbol{\Sigma}} & 0 \\
+
 0 & \boldsymbol{\Sigma}_{\mathrm{rem}}
+
 \end{array}\right]\left[\begin{array}{c}
+
 \tilde{\mathbf{V}}^{*} \\
+
 \tilde{\mathbf{V}}_{\mathrm{rem}}^{*}
+
 \end{array}\right] \\
+
 & \approx \tilde{\mathbf{U}} \tilde{\boldsymbol{\Sigma}} \tilde{\mathbf{V}}^{*}
+
 \end{aligned}
 $$
 
-where  $\mathbf{U} \in \mathbb{R}^{n \times n}$, $\boldsymbol{\Sigma} \in \mathbb{R}^{n \times m-1}$, $\tilde{\mathbf{V}}^{*} \in \mathbb{R}^{m-1 \times m-1}$, $\tilde{\mathbf{U}} \in \mathbb{R}^{n \times r}$, $\tilde{\boldsymbol{\Sigma}} \in \mathbb{R}^{r \times r}$, $\tilde{\mathbf{V}}^{*} \in \mathbb{R}^{r \times m-1}$ , rem indicates the remaining $m-1-r$ singular values, and ${ }^{*}$ denotes the complex conjugate transpose.
+where  $\mathbf{U} \in \mathbb{R}^{n \times n}, \boldsymbol{\Sigma} \in \mathbb{R}^{n \times m-1}, \tilde{\mathbf{V}}^{*} \in \mathbb{R}^{m-1 \times m-1}, \tilde{\mathbf{U}} \in \mathbb{R}^{n \times r}, \tilde{\boldsymbol{\Sigma}} \in \mathbb{R}^{r \times r}, \tilde{\mathbf{V}}^{*} \in \mathbb{R}^{r \times m-1}$ , rem indicates the remaining $m-1-r$ singular values, and ${ }^{*}$ denotes the complex conjugate transpose.
 
 Using the SVD of the snapshot matrix $\mathbf{X}$, the following approximation of the matrix $\mathbf{A}$ can be computed:
 
@@ -77,16 +88,20 @@ $$
 where $\mathbf{\bar{A}}$ is an approximation of the operator $\mathbf{A}$. $\mathbf{A}$ dynamic model of the process can be constructed given by the following:
 
 $$
-\mathbf{x}_{k+1} =\mathbf{\bar{A}}\mathbf{x}_{k}
+\mathbf{x}_{k+1} =\mathbf{\bar{A}} \mathbf{x}_{k}
 $$
 
 If $r \ll n$, a more compact and computationally efficient model can be found by projecting $\mathbf{x_k}$ onto a linear subspace of dimension $r$. This basis transformation takes the form $\mathbf{P}\mathbf{x} = \tilde{\mathbf{x}}$. As previously shown by DMD, a convenient transformation has already been computed via the SVD of $\mathbf{X}$, given by $\mathbf{P} = \tilde{\mathbf{U}}_{*}$. The reduced-order model can be derived as follows:
 
 $$
 \begin{aligned}
+
 \tilde{\mathbf{x}}_{k+1} & =\tilde{\mathbf{U}}^{*} \overline{\mathbf{A}} \tilde{\mathbf{U}} \tilde{\mathbf{x}}_{k} \\
+
 & =\tilde{\mathbf{U}}^{*} \mathbf{X}^{\prime} \tilde{\mathbf{V}} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\mathbf{x}}_{k} \\
+
 & =\tilde{\mathbf{A}} \tilde{\mathbf{x}}_{k}
+
 \end{aligned}
 $$
 
