@@ -58,7 +58,7 @@ $$
 \end{array}\right]\left\[\begin{array}{cc}
 \tilde{\boldsymbol{\Sigma}} & 0 \\
 0 & \boldsymbol{\Sigma}\_{\mathrm{rem}}
-\end{array}\right]\left\[\begin{array}{c}
+\end{array}\right]\left[\begin{array}{c}
 \tilde{\mathbf{V}}^{\ast} \\
 \tilde{\mathbf{V}}\_{\mathrm{rem}}^{\ast}
 \end{array}\right] \\
