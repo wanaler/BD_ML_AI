@@ -38,7 +38,7 @@ $$
 where $m$ is the total number of snapshots and $\mathbf{X'}$ is the time-shifted snapshot matrix of $\mathbf{X}$, i.e., $\mathbf{X'} = \mathbf{A}\mathbf{X}$. The relationship between pairs of measurement in and the combined data snapshots can be described more compactly in the following matrix form:
 
 $$
-\mathbf{X'} \approx  \mathbf{A}\mathbf{X},
+\mathbf{X'} \approx \mathbf{A}\mathbf{X},
 $$
 
 Solving for an approximation of the process matrix $\mathbf{A}$ for the measurement matrix pair $\mathbf{X}$ and $\mathbf{X'}$ is the primary objective of DMD.
@@ -46,7 +46,7 @@ Solving for an approximation of the process matrix $\mathbf{A}$ for the measurem
 The following section describes how to find the dynamic modes and eigenvalues of the underlying system $\mathbf{A}$. The DMD of the measurement matrix pair $\mathbf{X}$ and $\mathbf{X'}$ is the eigendecomposition of the matrix $\mathbf{A}$. The operator $\mathbf{A}$ is defined by the following:
 
 $$
-\mathbf{A} = \mathbf{X'}\mathbf{X}^{-1}
+\mathbf{A} = \mathbf{X'} \mathbf{X}^{-1}
 $$
 
 A computationally efficient and accurate method for finding the pseudoinverse is via the SVD. The SVD of $\mathbf{X}$ results in the well-known decomposition.
