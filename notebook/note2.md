@@ -53,16 +53,16 @@ A computationally efficient and accurate method for finding the pseudoinverse is
 
 $$
 \begin{aligned}
-\mathbf{X}=\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{*} & =\left[\begin{array}{cc}
+\mathbf{X}=\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{\ast} & =\left[\begin{array}{cc}
 \tilde{\mathbf{U}} & \tilde{\mathbf{U}}_{\mathrm{rem}}
 \end{array}\right]\left[\begin{array}{cc}
 \tilde{\boldsymbol{\Sigma}} & 0 \\
 0 & \boldsymbol{\Sigma}_{\mathrm{rem}}
 \end{array}\right]\left[\begin{array}{c}
-\tilde{\mathbf{V}}^{*} \\
-\tilde{\mathbf{V}}_{\mathrm{rem}}^{*}
+\tilde{\mathbf{V}}^{\ast} \\
+\tilde{\mathbf{V}}_{\mathrm{rem}}^{\ast}
 \end{array}\right] \\
-& \approx \tilde{\mathbf{U}} \tilde{\boldsymbol{\Sigma}} \tilde{\mathbf{V}}^{*}
+& \approx \tilde{\mathbf{U}} \tilde{\boldsymbol{\Sigma}} \tilde{\mathbf{V}}^{\ast}
 \end{aligned}
 $$
 
@@ -71,7 +71,7 @@ where $\mathbf{U} \in \mathbb{R}^{n \times n}$, $\boldsymbol{\Sigma} \in \mathbb
 Using the SVD of the snapshot matrix $\mathbf{X}$, the following approximation of the matrix $\mathbf{A}$ can be computed:
 
 $$
-\mathbf{A} \approx \mathbf{\bar{A}} = \mathbf{X'}\tilde{\mathbf{V}} \tilde{\boldsymbol{\Sigma}}^{-1} \tilde{\mathbf{U}}^{*}
+\mathbf{A} \approx \mathbf{\bar{A}} = \mathbf{X'}\tilde{\mathbf{V}} \tilde{\boldsymbol{\Sigma}}^{-1} \tilde{\mathbf{U}}^{\ast}
 $$
 
 where $\mathbf{\bar{A}}$ is an approximation of the operator $\mathbf{A}$. $\mathbf{A}$ dynamic model of the process can be constructed given by the following:
@@ -84,8 +84,8 @@ If $r \ll n$, a more compact and computationally efficient model can be found by
 
 $$
 \begin{aligned}
-\tilde{\mathbf{x}}_{k+1} & =\tilde{\mathbf{U}}^{*} \overline{\mathbf{A}} \tilde{\mathbf{U}} \tilde{\mathbf{x}}_{k} \\
-& =\tilde{\mathbf{U}}^{*} \mathbf{X}^{\prime} \tilde{\mathbf{V}} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\mathbf{x}}_{k} \\
+\tilde{\mathbf{x}}_{k+1} & =\tilde{\mathbf{U}}^{\ast} \overline{\mathbf{A}} \tilde{\mathbf{U}} \tilde{\mathbf{x}}_{k} \\
+& =\tilde{\mathbf{U}}^{\ast} \mathbf{X}^{\prime} \tilde{\mathbf{V}} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\mathbf{x}}_{k} \\
 & =\tilde{\mathbf{A}} \tilde{\mathbf{x}}_{k}
 \end{aligned}
 $$
@@ -93,7 +93,7 @@ $$
 The reduced-order model is given by the following:
 
 $$
-\tilde{\mathbf{A}} = \tilde{\mathbf{U}}^{*} \mathbf{X}^{\prime} \tilde{\mathbf{V}} \tilde{\mathbf{\Sigma}}^{-1}
+\tilde{\mathbf{A}} = \tilde{\mathbf{U}}^{\ast} \mathbf{X}^{\prime} \tilde{\mathbf{V}} \tilde{\mathbf{\Sigma}}^{-1}
 $$
 
 
