@@ -84,8 +84,8 @@ If $r \ll n$, a more compact and computationally efficient model can be found by
 
 $$
 \begin{aligned}
-\tilde{\mathbf{x}}_{k+1} & =\tilde{\mathbf{U}}^{\ast} \overline{\mathbf{A}} \tilde{\mathbf{U}} \tilde{\mathbf{x}}_{k} \\
-& =\tilde{\mathbf{U}}^{\ast} \mathbf{X}^{\prime} \tilde{\mathbf{V}} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\mathbf{x}}_{k} \\
+\tilde{\mathbf{x}}\_{k+1} & =\tilde{\mathbf{U}}^{\ast} \overline{\mathbf{A}} \tilde{\mathbf{U}} \tilde{\mathbf{x}}\_{k} \\
+& =\tilde{\mathbf{U}}^{\ast} \mathbf{X}^{\prime} \tilde{\mathbf{V}} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\mathbf{x}}\_{k} \\
 & =\tilde{\mathbf{A}} \tilde{\mathbf{x}}_{k}
 \end{aligned}
 $$
