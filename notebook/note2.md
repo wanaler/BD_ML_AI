@@ -55,15 +55,12 @@ $$
 \begin{aligned}
 \mathbf{X}=\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{*} & =\left[\begin{array}{cc}
 \tilde{\mathbf{U}} & \tilde{\mathbf{U}}_{\mathrm{rem}}
-
 \end{array}\right]\left[\begin{array}{cc}
 \tilde{\boldsymbol{\Sigma}} & 0 \\
 0 & \boldsymbol{\Sigma}_{\mathrm{rem}}
-
 \end{array}\right]\left[\begin{array}{c}
 \tilde{\mathbf{V}}^{*} \\
 \tilde{\mathbf{V}}_{\mathrm{rem}}^{*}
-
 \end{array}\right] \\
 & \approx \tilde{\mathbf{U}} \tilde{\boldsymbol{\Sigma}} \tilde{\mathbf{V}}^{*}
 \end{aligned}
@@ -87,13 +84,9 @@ If $r \ll n$, a more compact and computationally efficient model can be found by
 
 $$
 \begin{aligned}
-
 \tilde{\mathbf{x}}_{k+1} & =\tilde{\mathbf{U}}^{*} \overline{\mathbf{A}} \tilde{\mathbf{U}} \tilde{\mathbf{x}}_{k} \\
-
 & =\tilde{\mathbf{U}}^{*} \mathbf{X}^{\prime} \tilde{\mathbf{V}} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\mathbf{x}}_{k} \\
-
 & =\tilde{\mathbf{A}} \tilde{\mathbf{x}}_{k}
-
 \end{aligned}
 $$
 
