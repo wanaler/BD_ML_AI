@@ -77,7 +77,7 @@ $$
 where $\mathbf{\bar{A}}$ is an approximation of the operator $\mathbf{A}$. $\mathbf{A}$ dynamic model of the process can be constructed given by the following:
 
 $$
-\mathbf{x}_{k+1} =\mathbf{\bar{A}} \mathbf{x}_{k}
+\mathbf{x}\_{k+1} =\mathbf{\bar{A}} \mathbf{x}_{k}
 $$
 
 If $r \ll n$, a more compact and computationally efficient model can be found by projecting $\mathbf{x_k}$ onto a linear subspace of dimension $r$. This basis transformation takes the form $\mathbf{P}\mathbf{x} = \tilde{\mathbf{x}}$. As previously shown by DMD, a convenient transformation has already been computed via the SVD of $\mathbf{X}$, given by $\mathbf{P} = \tilde{\mathbf{U}}_{*}$. The reduced-order model can be derived as follows:
