@@ -9,7 +9,7 @@ Dynamic mode decomposition (DMD) is a powerful data-driven method for analyzing 
 
 This is the summary of Dynamic Mode Decomposition(DMD). 
 
-To begin with data collecttion and organization, at a fundamental level, DMD analyzes the relationship between pairs of measurements from a dynamical system.The measurements, $x_k$ and $x_{k+1}$, where $k$ indicates the temporal iteration from a discrete dynamical system, are assumed to be approximately related by a linear operator:
+To begin with data collecttion and organization, at a fundamental level, DMD analyzes the relationship between pairs of measurements from a dynamical system.The measurements, $\mathbf{x_{k}}$ and $\mathbf{x_{k+1}}$, where $k$ indicates the temporal iteration from a discrete dynamical system, are assumed to be approximately related by a linear operator:
 
 $$
 \mathbf{x_{k+1}} \approx  \mathbf{A}\mathbf{x_k},
