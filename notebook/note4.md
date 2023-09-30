@@ -9,7 +9,7 @@ The Nelder–Mead technique was proposed by John Nelder and Roger Mead in 1965, 
 We are trying to minimize the function $f({\mathbf  x})$, where ${\displaystyle \mathbf {x} \in \mathbb {R} ^{n}}$. Our current test points are ${\displaystyle \mathbf {x} _{1},\ldots ,\mathbf {x} _{n+1}}.$
 
 1. Order 
-according to the values at the vertices:${\displaystyle f(\mathbf {x} _{1})\le f(\mathbf {x} _{2})\le \cdots \le f(\mathbf {x} _{n+1}).}$
+according to the values at the vertices: ${\displaystyle f(\mathbf {x} _{1})\le f(\mathbf {x} _{2})\le \cdots \le f(\mathbf {x} _{n+1}).}$
 Check whether method should stop. See Termination (sometimes called "convergence").
 
 2. Calculate 
