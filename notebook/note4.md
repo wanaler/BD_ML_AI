@@ -17,11 +17,7 @@ ${\displaystyle \mathbf {x} _{o}}$, the centroid of all points except ${\display
 
 3. Reflection
 Compute reflected point ${\displaystyle \mathbf {x} _{r}=\mathbf {x} _{o}+\alpha (\mathbf {x} _{o}-\mathbf {x} _{n+1})}$ with $\alpha >0.$
-If the reflected point is better than the second worst, but not better than the best, i.e.
-
-$${\displaystyle f(\mathbf {x} _{1})\le f(\mathbf {x} _{r})<f(\mathbf {x} _{n})},$$
-
-then obtain a new simplex by replacing the worst point ${\displaystyle \mathbf {x} _{n+1}}$ with the reflected point ${\displaystyle \mathbf {x} _{r}},$ and go to step 1.
+If the reflected point is better than the second worst, but not better than the best, i.e. ${f(\mathbf {x} _{1})\le f(\mathbf {x} _{r})<f(\mathbf {x} _{n})},$ then obtain a new simplex by replacing the worst point ${\displaystyle \mathbf {x} _{n+1}}$ with the reflected point ${\displaystyle \mathbf {x} _{r}},$ and go to step 1.
 
 5. Expansion
 If the reflected point is the best point so far, ${\displaystyle f(\mathbf {x} _{r})<f(\mathbf {x} _{1})},$ then compute the expanded point ${\displaystyle \mathbf {x} _{e}=\mathbf {x} _{o}+\gamma (\mathbf {x} _{r}-\mathbf {x} _{o})}$ with $\gamma >1.$
