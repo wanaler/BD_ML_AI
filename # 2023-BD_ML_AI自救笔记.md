@@ -597,7 +597,7 @@ The Nelder–Mead method (also downhill simplex method, amoeba method, or polyto
 
 The Nelder–Mead technique was proposed by John Nelder and Roger Mead in 1965, as a development of the method of Spendley et al.
 
-![0](notebook/n401.png)
+![0](/notebook/n401.png)
 
 #### One possible variation of the NM algorithm
 We are trying to minimize the function $f({\mathbf  x})$, where ${\displaystyle \mathbf {x} \in \mathbb {R} ^{n}}$. Our current test points are ${\displaystyle \mathbf {x} _{1},\ldots ,\mathbf {x} _{n+1}}.$
@@ -635,10 +635,10 @@ Replace all points except the best $({\displaystyle \mathbf {x} _{1}})$ with ${\
 Note: $\alpha$, $\gamma$, $\rho$ and $\sigma$  are respectively the reflection, expansion, contraction and shrink coefficients. Standard values are $\alpha =1$, $\gamma = 2$, ${\displaystyle \rho =1/2}$ and ${\displaystyle \sigma =1/2}.$
 
 Like:
-![0](notebook/n402.png)
+![0](/notebook/n402.png)
 
 To:
-![1](notebook/n403.png)
+![1](/notebook/n403.png)
 
 ### Genetic Algorithm (遗传算法)
 #### 内容参考
@@ -646,9 +646,10 @@ To:
 #### 简单介绍
 对于一个变分问题（即求解泛函的最大最小值），当不使用计算机时，我们第一时间想到的便是求导求解最值（如拉格朗日乘数法等）。但是，有些函数使用数学方法求解最值过于复杂，有了计算机的帮助后，我们便可以摆脱这些数学技巧，利用计算机通过一些简单重复的步骤便可获取答案。
 
-试想当我们完全不知道有关函数求导的知识，对于一个多元函数（例如$f(x, y) $）在给定范围下求解函数的最值，我们该如何求解这样的问题呢。 一个朴素的想法是我们可以拿一些自变量的值去尝试，事实上，只要我们所尝试的值足够多，总能找到一个答案与最值的误差在一定范围内。计算机便可以帮助我们做这样的事。对于给定求解最值的空间中，利用计算机均匀地划分足够多的采样点，求解这些采样点所对应的函数值，我们便可以得到一个最值的近似值。
+试想当我们完全不知道有关函数求导的知识，对于一个多元函数（例如$ f(x, y) $）在给定范围下求解函数的最值，我们该如何求解这样的问题呢。 一个朴素的想法是我们可以拿一些自变量的值去尝试，事实上，只要我们所尝试的值足够多，总能找到一个答案与最值的误差在一定范围内。计算机便可以帮助我们做这样的事。对于给定求解最值的空间中，利用计算机均匀地划分足够多的采样点，求解这些采样点所对应的函数值，我们便可以得到一个最值的近似值。
 例如对Exercise 6， 我们也可以通过均与采样的方式来求取最值。
-![Alt text](notebook/GA(example).png)
+
+![1](/notebook/GA(example).png)
 
 虽然计算机可以很好的帮助我们做大量的重复的计算工作，但是这种方法还是存在不少的弊端。首先便是取样的问题，为了获得足够精确的结果，我们划分的采样点不得不足够多，足够密集，但是这样会造成大量的计算任务，对于复杂的函数来说，计算机的效率可能就显得不够高了。
 
@@ -661,14 +662,18 @@ To:
 为了实现这个算法，我们需要定义基因。这里的基因一般是一串数组，方便我们实现杂交编译等操作。同时，基因需要记录个体的一些信息。在上述变分问题的例子中，我们需要用基因来记录每一个采样点的位置信息（即 **(x, y)**），从而帮助我们计算采样点的函数值。为了让后续的杂交编译的操作更加便捷有效，我们使用二进制来保存我们的基因。
 
 举个例子，对于基因 **[1, 0, 1, 1, 0, 1]** 来说什么，它该如何翻译成我们所需要的坐标信息呢。下图展现了基因翻译的过程。
-![Alt text](notebook/genetranslate.png)
+
+![Alt text](/notebook/genetranslate.png)
+
 具体简单来说做法便是
 1.将基因按照奇偶分为两个部分，分别对应x, y的值
 2.将二进制的x，y的值化成十进制。
 3.构造映射将x，y映射到所需的范围中去。
-事实上，这样的作法就是将求解区域划分成$2^N\times2^N$的网格，让每一个节点与唯一的一条二进制基因序列对应。这样问题变被我们转化成了寻找最优的（函数值最大或最小）基因序列。
+事实上，这样的作法就是将求解区域划分成$2^N \times 2^N$的网格，让每一个节点与唯一的一条二进制基因序列对应。这样问题变被我们转化成了寻找最优的（函数值最大或最小）基因序列。
 当然，也可像下图划分x，y。
-![Alt text](notebook/genetranslate(fromteacher).png)
+
+![Alt text](/notebook/genetranslate(fromteacher).png)
+
 ##### 选择操作(selection)
 选择操作可以说是遗传算法最为核心的部分了，参考自然界中的自然选择原理，让更优的个体留存产生后代，从而优化种群实现寻优。
 
@@ -687,17 +692,22 @@ $$ P_i = \frac{fitness(i)}{\sum_{pop}{fitness(j)}} $$
 杂交和变异操作让子代与父代之间产生变化，放在刚才的例子来说就是采样点的移动，这样的变化配合选择操作可以让子代个体总体上向着更优解迈进，于此同时，适当的变化可以让子代跳出一些局部最优的情况，从而达到全局最优解。
 
 **杂交(crossover)**,顾名思义，就是子代获得父本母本的各一部分基因，重新组合，如下图所示。
-![Alt text](notebook/GA_crossover.jpg)
+
+![Alt text](/notebook/GA_crossover.jpg)
+
 上图选取的杂交点是随机选取的，当然除了上图所示的单点杂交操作外，还可以选择多个杂交点，互换父母多段基因片段，这里不多赘述。
 
 **变异(mutation)**,顾名思义，就是改变子代的一些基因片段，使其与父母展现出不同的特征，如下图所示。
-![Alt text](notebook/GA_mutation.jpg)
+
+![Alt text](/notebook/GA_mutation.jpg)
 
 当然，出了上图所示的变异方式，还有其他的变异方式（改变多个基因片段，或者互换前后两个基因片段的顺序），这里不再赘述。
 
 ##### 迭代
 遗传算法就是通过选择，杂交与变异更新种群，通过反复重复这一过程使得种群变得更优，实现优化目的。每一次迭代，按照如下图所示的方式进行。
-![Alt text](notebook/GA_generate.jpg)
+
+![Alt text](/notebook/GA_generate.jpg)
+
 这里我们需要确定算法的杂交概率($P_1$)和变异概率($P_2$),这些参数能够帮助我们调控算法的性能。从上图可知，从父代产生子代的每一条路径都有一定的概率而且只能通过其中一条路径产生。子代个体数与选择的父代个体数相同，从而保证种群里个体的数量稳定，不会出现种群的暴增或消失。
 
 ##### 求解
