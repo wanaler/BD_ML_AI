@@ -488,6 +488,8 @@ def MyKmeans(data, n_clusters = 3):
                 # plt.pause(5)
                 # ax.cla()
         #更新聚类中心到每个集群的质心
+
+
         for j in range(n_clusters):
             new_centroids = np.mean(data[(category == j)], axis = 0) #(category == j) 筛选出属于j集群的所有数据点， 然后求均值
             centroids[j] = new_centroids
@@ -587,5 +589,274 @@ plt.scatter(centroid[:, 0], centroid[:, 1], centroid[:, 2], c = 'r')
 plt.scatter(X[:, 0],X[:, 1], X[:, 2], c = cluster, alpha=0.1)
 plt.title('Lorenz')
 plt.show()
+```
 
+## Lecture 3 变分问题
+### downhill simplex method
+The Nelder–Mead method (also downhill simplex method, amoeba method, or polytope method) is a numerical method used to find the minimum or maximum of an objective function in a multidimensional space. It is a direct search method (based on function comparison) and is often applied to nonlinear optimization problems for which derivatives may not be known. However, the Nelder–Mead technique is a heuristic search method that can converge to non-stationary points on problems that can be solved by alternative methods.
+
+The Nelder–Mead technique was proposed by John Nelder and Roger Mead in 1965, as a development of the method of Spendley et al.
+
+![0](notebook/n401.png)
+
+#### One possible variation of the NM algorithm
+We are trying to minimize the function $f({\mathbf  x})$, where ${\displaystyle \mathbf {x} \in \mathbb {R} ^{n}}$. Our current test points are ${\displaystyle \mathbf {x} _{1},\ldots ,\mathbf {x} _{n+1}}.$
+
+##### step1:Order 
+according to the values at the vertices: ${\displaystyle f(\mathbf {x} _{1})\leq f(\mathbf {x} _{2})\leq \cdots \leq f(\mathbf {x} _{n+1}).}$
+Check whether method should stop. See Termination (sometimes called "convergence").
+
+##### step2:Calculate 
+${\displaystyle \mathbf {x} _{o}}$, the centroid of all points except ${\displaystyle \mathbf {x} _{n+1}}.$
+
+##### step3:Reflection
+Compute reflected point ${\displaystyle \mathbf {x} _{r}=\mathbf {x} _{o}+\alpha (\mathbf {x} _{o}-\mathbf {x} _{n+1})}$ with $\alpha >0.$
+If the reflected point is better than the second worst, but not better than the best, i.e. $f(\mathbf{x_1})\le f(\mathbf{x_r}) < f(\mathbf{x_n})$ then obtain a new simplex by replacing the worst point ${ \mathbf {x} _{n+1}}$ with the reflected point ${\mathbf {x} _{r}}$ and go to step 1.
+
+##### step4:Expansion
+If the reflected point is the best point so far, $f(\mathbf{x_r}) < f(\mathbf{x_1})$, then compute the expanded point $\mathbf{x_e}=\mathbf{x_o}+\gamma (\mathbf{x_r}-\mathbf{x_o})$ with $\gamma >1$.
+If the expanded point is better than the reflected point, $f(\mathbf{x_e}) < f(\mathbf{x_r})$,then obtain a new simplex by replacing the worst point $\mathbf {x_n+1}$ with the expanded point $\mathbf {x_e}$ and go to step 1;
+else obtain a new simplex by replacing the worst point $\mathbf{x_{n+1}}$ with the reflected point $\mathbf{x_r}$ and go to step 1.
+
+##### step5:Contraction
+Here it is certain that $f(\mathbf{x_r}) \ge f(\mathbf{x_n})$. (Note that $\mathbf{x_n}$ is second or "next" to the worst point.)
+If $f(\mathbf{x_r}) < f(\mathbf{x_{n+1}})$, then compute the contracted point on the outside ${\displaystyle \mathbf {x_c}=\mathbf{x_o}+\rho (\mathbf{x_r}-\mathbf{x_o})}$ with ${\displaystyle 0<\rho \leq 0.5}.$ 
+If the contracted point is better than the reflected point, i.e. ${\displaystyle f(\mathbf{x_c}) < f(\mathbf{x_r})},$ then obtain a new simplex by replacing the worst point $\mathbf{x_{n+1}}$ with the contracted point $\mathbf{x_c}$ and go to step 1;
+Else go to step 6;
+If $f(\mathbf{x_r}) \geq f(\mathbf{x_{n+1}}),$ then compute the contracted point on the inside ${\displaystyle \mathbf{x_c}=\mathbf {x_o}+\rho (\mathbf{x_{n+1}}-\mathbf{x_o})}$ with ${\displaystyle 0<\rho \leq 0.5}.$
+If the contracted point is better than the worst point, i.e. 
+$f(\mathbf {x_c}) < f(\mathbf {x_{n+1}})$,
+then obtain a new simplex by replacing the worst point ${\displaystyle \mathbf {x} _{n+1}}$ with the contracted point ${\displaystyle \mathbf {x} _{c}}$ and go to step 1;
+Else go to step 6;
+
+##### step6:Shrink
+Replace all points except the best $({\displaystyle \mathbf {x} _{1}})$ with ${\displaystyle \mathbf {x} _{i}=\mathbf {x} _{1}+\sigma (\mathbf {x} _{i}-\mathbf {x} _{1})}$ and go to step 1.
+
+Note: $\alpha$, $\gamma$, $\rho$ and $\sigma$  are respectively the reflection, expansion, contraction and shrink coefficients. Standard values are $\alpha =1$, $\gamma = 2$, ${\displaystyle \rho =1/2}$ and ${\displaystyle \sigma =1/2}.$
+
+Like:
+![0](notebook/n402.png)
+
+To:
+![1](notebook/n403.png)
+
+### Genetic Algorithm (遗传算法)
+#### 内容参考
+[CSDN:遗传算法详解 附python代码实现](https://blog.csdn.net/ha_ha_ha233/article/details/91364937?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169595461716777224438773%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169595461716777224438773&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-91364937-null-null.142^v94^chatsearchT3_1&utm_term=%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95&spm=1018.2226.3001.4187)
+#### 简单介绍
+对于一个变分问题（即求解泛函的最大最小值），当不使用计算机时，我们第一时间想到的便是求导求解最值（如拉格朗日乘数法等）。但是，有些函数使用数学方法求解最值过于复杂，有了计算机的帮助后，我们便可以摆脱这些数学技巧，利用计算机通过一些简单重复的步骤便可获取答案。
+
+试想当我们完全不知道有关函数求导的知识，对于一个多元函数（例如$f(x, y) $）在给定范围下求解函数的最值，我们该如何求解这样的问题呢。 一个朴素的想法是我们可以拿一些自变量的值去尝试，事实上，只要我们所尝试的值足够多，总能找到一个答案与最值的误差在一定范围内。计算机便可以帮助我们做这样的事。对于给定求解最值的空间中，利用计算机均匀地划分足够多的采样点，求解这些采样点所对应的函数值，我们便可以得到一个最值的近似值。
+例如对Exercise 6， 我们也可以通过均与采样的方式来求取最值。
+![Alt text](notebook/GA(example).png)
+
+虽然计算机可以很好的帮助我们做大量的重复的计算工作，但是这种方法还是存在不少的弊端。首先便是取样的问题，为了获得足够精确的结果，我们划分的采样点不得不足够多，足够密集，但是这样会造成大量的计算任务，对于复杂的函数来说，计算机的效率可能就显得不够高了。
+
+遗传算法为了解决这个问题，参考了生物界中 **“物竞天择，适者生存”** 的原理，模仿自然选择的过程，通过不断迭代淘汰掉差采样点，留下更优的采样点，并且通过一定的手段保留这种优势，让采样点不断的寻优，从而得到我们想要的结果。
+#### 具体原理
+遗传算法大概分为一下几个操作和步骤
+##### 种群与个体
+遗传算法是模仿生物界中自然选择原理建立的，自然也集成了生物学中的一些观点，种群与个体便是其中之一。在此算法中，个体事我们需要计算寻优的对象，种群则是这些对象组成的集合。在上面的例子中，个体便是我们选取的采样点，种群便是我们选取的采样点的集合。
+##### 基因
+为了实现这个算法，我们需要定义基因。这里的基因一般是一串数组，方便我们实现杂交编译等操作。同时，基因需要记录个体的一些信息。在上述变分问题的例子中，我们需要用基因来记录每一个采样点的位置信息（即 **(x, y)**），从而帮助我们计算采样点的函数值。为了让后续的杂交编译的操作更加便捷有效，我们使用二进制来保存我们的基因。
+
+举个例子，对于基因 **[1, 0, 1, 1, 0, 1]** 来说什么，它该如何翻译成我们所需要的坐标信息呢。下图展现了基因翻译的过程。
+![Alt text](notebook/genetranslate.png)
+具体简单来说做法便是
+1.将基因按照奇偶分为两个部分，分别对应x, y的值
+2.将二进制的x，y的值化成十进制。
+3.构造映射将x，y映射到所需的范围中去。
+事实上，这样的作法就是将求解区域划分成$2^N\times2^N$的网格，让每一个节点与唯一的一条二进制基因序列对应。这样问题变被我们转化成了寻找最优的（函数值最大或最小）基因序列。
+当然，也可像下图划分x，y。
+![Alt text](notebook/genetranslate(fromteacher).png)
+##### 选择操作(selection)
+选择操作可以说是遗传算法最为核心的部分了，参考自然界中的自然选择原理，让更优的个体留存产生后代，从而优化种群实现寻优。
+
+如何认定子代的优劣呢，这里我们先定义每一个个体的适应度。
+
+$$for \ maxF_i :\ \   fitness(i) = F_i - F_{min} 
+\\  for \ minF_i :\ \   fitness(i) = F_{max} - F_i $$
+
+适应度的定义并复杂，本质上是根据优化目标，让种群的函数值移动到以0为起点。保证最差的个体（距离优化目标最远的采样点）适应度为0。
+然后根据适应度定义每个个体被选择迭代（产生后代）的概率。
+
+$$ P_i = \frac{fitness(i)}{\sum_{pop}{fitness(j)}} $$
+
+根据这一定义，适应度愈大的个体被选中的概率最大，而最差的个体由于适应度为0，不存在被选中的机会。引入适应度，让选择更大的偏向函数值更符合期望的个体，防止函数值本身差异不大而影响选择的进行。
+##### 杂交与变异操作
+杂交和变异操作让子代与父代之间产生变化，放在刚才的例子来说就是采样点的移动，这样的变化配合选择操作可以让子代个体总体上向着更优解迈进，于此同时，适当的变化可以让子代跳出一些局部最优的情况，从而达到全局最优解。
+
+**杂交(crossover)**,顾名思义，就是子代获得父本母本的各一部分基因，重新组合，如下图所示。
+![Alt text](notebook/GA_crossover.jpg)
+上图选取的杂交点是随机选取的，当然除了上图所示的单点杂交操作外，还可以选择多个杂交点，互换父母多段基因片段，这里不多赘述。
+
+**变异(mutation)**,顾名思义，就是改变子代的一些基因片段，使其与父母展现出不同的特征，如下图所示。
+![Alt text](notebook/GA_mutation.jpg)
+
+当然，出了上图所示的变异方式，还有其他的变异方式（改变多个基因片段，或者互换前后两个基因片段的顺序），这里不再赘述。
+
+##### 迭代
+遗传算法就是通过选择，杂交与变异更新种群，通过反复重复这一过程使得种群变得更优，实现优化目的。每一次迭代，按照如下图所示的方式进行。
+![Alt text](notebook/GA_generate.jpg)
+这里我们需要确定算法的杂交概率($P_1$)和变异概率($P_2$),这些参数能够帮助我们调控算法的性能。从上图可知，从父代产生子代的每一条路径都有一定的概率而且只能通过其中一条路径产生。子代个体数与选择的父代个体数相同，从而保证种群里个体的数量稳定，不会出现种群的暴增或消失。
+
+##### 求解
+我们可以设置算法的迭代次数n，在迭代完成后，计算最后一代种群中函数值的最优值作为算法的结果。
+
+#### 计算机实现
+以exercise 6为例，python实现如下：
+##### 相关参数设置
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.animation import FuncAnimation
+
+generation = 50 #迭代次数
+individuals = 100 #种群个体数
+genesize = 20 #基因长度
+#取值范围
+x_bound = [0, 2]
+y_bound = [0, 2]
+
+mutation_rate = 0.1 #变异概率
+crossover_rate = 0.8 #杂交概率
+```
+##### 构造求解的函数
+```python
+def J(x, y):
+    return 1 - 0.5 * np.exp(-(x - 0.5)**2 - (y  - 0.5)**2) - np.exp(-4 * (x - 1.5)**2 - 4 * (y - 1.5)**2)
+
+def plot_data():
+    X, Y = np.meshgrid(np.linspace(*x_bound, 100), np.linspace(*y_bound, 100))
+    Z = J(X, Y)
+    
+    levels = np.linspace(Z.min(), Z.max(), 10)
+    fig, ax = plt.subplots()
+    cs = ax.contourf(X, Y, Z, levels=levels, cmap=cm.viridis)
+    
+    plt.colorbar(cs)
+    plt.show()
+```
+Output：![Alt text](notebook/GA_field.png)
+
+##### 基因翻译
+```python
+def gene_translate(pop = np.array([[1, 1, 0, 0, 1, 0, 1, 0]])):
+    x_pop = pop[:, 1::2] 
+    y_pop = pop[:, 0::2]
+    coef = 2**np.arange(genesize).T
+    gene_max = 2**genesize - 1
+    x = x_pop.dot(coef) / gene_max * (x_bound[1] - x_bound[0]) + x_bound[0]
+    y = y_pop.dot(coef) / gene_max * (y_bound[1] - y_bound[0]) + y_bound[0]
+    return x, y
+
+```
+##### 适应度与选择
+```python
+def get_fitness(pop):
+    fitness = -J(*gene_translate(pop))
+    fitness -= np.min(fitness)
+    return fitness
+
+def select(pop, size):
+    fitness = get_fitness(pop)
+    #p = fitness / fitness.sum()
+    #利用np.random.choice 可以设置抽样的概率的功能实现根据适应度选择
+    id = np.random.choice(np.arange(individuals), size = size, p = fitness / fitness.sum())
+    return pop[id]
+```
+##### 杂交与变异
+```python
+def mutation(ind):
+    if np.random.rand() < mutation_rate: 
+        #随机选取变异位点
+        mutate_point = np.random.randint(0, genesize)	
+        #取反变异
+        ind[mutate_point] = ind[mutate_point]^1
+    return ind
+
+def crossover(ind, pop):
+    if np.random.rand() < crossover_rate:
+        #选取一个母亲
+        mother = select(pop, 1).squeeze()
+        #随机选取杂交位点
+        cross_point = np.random.randint(0, 2*genesize)
+        ind[cross_point:] = mother[cross_point:]
+    return ind
+```
+##### 迭代与求解
+```python
+def solve(pop):
+    Jvalue = J(*gene_translate(pop))
+    #获取最优个体
+    id = np.argmin(Jvalue)
+    Jmin = Jvalue[id]
+    #最优个体位置
+    pos = gene_translate(np.array([pop[id]]))
+    return Jmin, pos
+
+def generate():
+    #随机初始化种群
+    pop = np.random.randint(2, size = (individuals, 2 * genesize))
+    Jmin, pos = solve(pop)
+    J_his = [Jmin]
+    #这里保存历史种群
+    pop_his = [pop]
+    for i in range(generation):
+        new_pop = []
+        #选取父代
+        father = select(pop, individuals)
+        for ind in father:
+            son = crossover(ind, pop)
+            son = mutation(son)
+            new_pop.append(son)
+        pop = np.array(new_pop)
+        Jmin, pos_min = solve(pop)
+   
+        if(Jmin < min(J_his)):
+            pos = pos_min
+        J_his.append(Jmin)
+        pop_his.append(pop)
+        
+    return np.array(J_his), pos, np.array(pop_his)
+```
+
+##### 可视化结果
+```python
+def vislization(pop_his):
+    X, Y = np.meshgrid(np.linspace(*x_bound, 100), np.linspace(*y_bound, 100))
+    Z = J(X, Y)
+    levels = np.linspace(Z.min(), Z.max(), 10)
+    fig, ax = plt.subplots()
+    cs = ax.contourf(X, Y, Z, levels=levels, cmap=cm.viridis)
+    plt.colorbar(cs)
+    x, y = gene_translate(pop_his[0])
+    line = ax.plot(x, y, '.r')
+    ax.set_title('generation = {}'.format(0))
+    def update(i):
+        if i >= generation:
+            return
+        x, y = gene_translate(pop_his[i])
+        line[0].set_data(x, y)
+        ax.set_title('generation = {}'.format(i))
+    ani=FuncAnimation(fig,update,interval=200) #绘制动画
+    plt.show()
+    ani.save("GA.mp4")
+
+def GA():
+    J_his, pos, pop_his = generate()
+    plt.plot(np.arange(J_his.shape[0]), np.log(J_his - np.min(J_his) + 1e-3))
+    plt.xlabel('generations')
+    plt.ylabel('log(J - Jmin)')
+    plt.show()
+    plt.close()
+    print('the Jmin is ', np.min(J_his))
+    print(pos)
+    vislization(pop_his)
+    
+if __name__ == '__main__':
+    plot_data()
+    GA()
 ```
